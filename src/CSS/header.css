@@ -1,0 +1,39 @@
+/* Header */
+header{
+    --main-color : #780000;
+    --main-color : #00072D;
+    --lite-color : white;
+}
+
+
+.logo{
+    background-color: var(--main-color);
+    color: white;
+    padding: 1rem;
+  }
+
+  .time-setter-buttons{
+    border: 1px solid var(--main-color);
+    width: fit-content;
+    padding: 0.5rem;
+    margin: auto;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+  }
+
+.time-setter{
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+  .time-setter:focus{
+    outline: none;
+    background-color: var(--main-color);
+    color: var(--lite-color);
+  }
+
+  .time-setter:hover{
+    border: 2px solid var(--main-color);
+  }
