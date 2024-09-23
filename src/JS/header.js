@@ -1,5 +1,4 @@
-import '../CSS/header.css'
-
+import "../CSS/header.css";
 
 class Header {
   constructor() {
@@ -15,18 +14,18 @@ class Header {
 
     this.buttonsSection(nav);
     this.element.appendChild(nav);
-    
   }
 
   buttonsSection(nav) {
     const section = document.createElement("section");
     section.classList.add("time-setter-buttons");
     section.innerHTML = `
-        <button class="time-setter">25</button>
-        <button class="time-setter">35</button>
-        <button class="time-setter">52</button>
+        <button data-time="1" class="time-setter">1</button>
+        <button data-time="25" class="time-setter">25</button>
+        <button data-time="35" class="time-setter">35</button>
+        <button data-time="52" class="time-setter">52</button>
         `;
-    nav.appendChild(section)
+    nav.appendChild(section);
   }
 }
 

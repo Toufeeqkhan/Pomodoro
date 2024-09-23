@@ -1,10 +1,4 @@
 /* Header */
-header{
-    --main-color : #780000;
-    --main-color : #00072D;
-    --lite-color : white;
-}
-
 
 .logo{
     background-color: var(--main-color);
@@ -16,8 +10,7 @@ header{
     border: 1px solid var(--main-color);
     width: fit-content;
     padding: 0.5rem;
-    margin: auto;
-    margin-top: 1rem;
+    margin: 1rem auto;
     border-radius: 0.5rem;
   }
 
