@@ -1,5 +1,4 @@
-// variable that stores total amount of time in mints
-const mints = 1; //testing purpose
+export let isTimerRunning = false;
 
 // function that takes time in mints and returns in seconds
 export const mintsToSeconds = (mints) => {
@@ -8,22 +7,39 @@ export const mintsToSeconds = (mints) => {
 
 // function that takes the given time and decrease it after each second and log it sequentially
 export const countDown = (seconds) => {
-  let currentSecond = seconds
-  if(currentSecond === 0){
-    console.log('Time is up!');
+  let currentSecond = seconds;
+  if (currentSecond === 0) {
+    console.log("Time is up!");
     return;
-  }else{
+  } else {
     console.log(currentSecond);
     setTimeout(() => countDown(currentSecond - 1), 1000); // decrease the second and call the function again after 1 second
   }
 };
 
-export const timeFormatter = (seconds) =>{
+// function to formate the time
+export const timeFormatter = (seconds) => {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
-  return `${minutes < 10? '0' : ''}${minutes}:${remainingSeconds < 10? '0' : ''}${remainingSeconds}`;
-}
+  return `${minutes < 10 ? "0" : ""}${minutes}:${
+    remainingSeconds < 10 ? "0" : ""
+  }${remainingSeconds}`;
+};
 
-
-console.log(timeFormatter(1234));
-
+export const displayCountDown = (mints, node,callback) => {
+  const seconds = mintsToSeconds(mints);
+  const countDown = (seconds) => {
+    let currentSecond = seconds;
+    if (currentSecond === 0) {
+      node.textContent = "Time to rest!";
+      isTimerRunning = false;
+      callback();
+      return;
+    } else {
+      if (!isTimerRunning) isTimerRunning = true;
+      node.textContent = timeFormatter(currentSecond);
+      setTimeout(() => countDown(currentSecond - 1), 1000); // decrease the second and call the function again after 1 second
+    }
+  };
+  countDown(seconds);
+};
